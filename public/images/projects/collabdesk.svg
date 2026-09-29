@@ -1,0 +1,86 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+    <linearGradient id="geminiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#ec4899" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="700" rx="16" fill="url(#bg)"/>
+  
+  <!-- Window Header -->
+  <rect width="1200" height="52" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
+  <circle cx="30" cy="26" r="6" fill="#ef4444"/>
+  <circle cx="50" cy="26" r="6" fill="#f59e0b"/>
+  <circle cx="70" cy="26" r="6" fill="#10b981"/>
+  <rect x="360" y="12" width="480" height="28" rx="8" fill="#1e293b"/>
+  <text x="600" y="31" fill="#94a3b8" font-family="sans-serif" font-size="12" text-anchor="middle">collabdesk.workspace/app/boards/sprint-4</text>
+
+  <!-- Sidebar -->
+  <rect x="0" y="52" width="220" height="648" fill="#0b1120" stroke="#1e293b" stroke-width="1"/>
+  <text x="24" y="95" fill="#f8fafc" font-family="sans-serif" font-size="18" font-weight="bold">CollabDesk</text>
+  <rect x="140" y="80" width="60" height="20" rx="6" fill="url(#geminiGrad)"/>
+  <text x="170" y="94" fill="#ffffff" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle">AI Powered</text>
+
+  <!-- Sidebar items -->
+  <rect x="16" y="120" width="188" height="36" rx="8" fill="#1e293b"/>
+  <text x="50" y="143" fill="#38bdf8" font-family="sans-serif" font-size="13" font-weight="bold">⚡ Active Board</text>
+  <text x="50" y="185" fill="#64748b" font-family="sans-serif" font-size="13">📁 S3 Files & Assets</text>
+  <text x="50" y="225" fill="#64748b" font-family="sans-serif" font-size="13">💳 Subscriptions (Razorpay)</text>
+  <text x="50" y="265" fill="#64748b" font-family="sans-serif" font-size="13">👥 Team (5 Online)</text>
+
+  <!-- Main Workspace Header -->
+  <text x="250" y="105" fill="#f8fafc" font-family="sans-serif" font-size="22" font-weight="bold">Sprint 4: Architecture & AI Subtasks</text>
+  <rect x="1020" y="80" width="150" height="36" rx="8" fill="url(#geminiGrad)"/>
+  <text x="1095" y="103" fill="#ffffff" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">✨ AI Auto-Breakdown</text>
+
+  <!-- Kanban Columns -->
+  <!-- Col 1: Todo -->
+  <rect x="250" y="140" width="280" height="520" rx="12" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
+  <text x="270" y="172" fill="#cbd5e1" font-family="sans-serif" font-size="14" font-weight="bold">To Do (3)</text>
+  
+  <rect x="265" y="195" width="250" height="120" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="280" y="225" fill="#f8fafc" font-family="sans-serif" font-size="13" font-weight="bold">Implement EC2 PM2 Cluster</text>
+  <text x="280" y="248" fill="#94a3b8" font-family="sans-serif" font-size="11">Configure zero-downtime reloads</text>
+  <rect x="280" y="275" width="60" height="20" rx="4" fill="#38bdf8" fill-opacity="0.2"/>
+  <text x="310" y="289" fill="#38bdf8" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle">DevOps</text>
+
+  <rect x="265" y="330" width="250" height="120" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="280" y="360" fill="#f8fafc" font-family="sans-serif" font-size="13" font-weight="bold">Razorpay Webhook Verification</text>
+  <text x="280" y="383" fill="#94a3b8" font-family="sans-serif" font-size="11">Validate SHA256 signatures</text>
+  <rect x="280" y="410" width="60" height="20" rx="4" fill="#f43f5e" fill-opacity="0.2"/>
+  <text x="310" y="424" fill="#f43f5e" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Payments</text>
+
+  <!-- Col 2: In Progress (Realtime Sync) -->
+  <rect x="560" y="140" width="280" height="520" rx="12" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
+  <text x="580" y="172" fill="#38bdf8" font-family="sans-serif" font-size="14" font-weight="bold">In Progress (Socket.io Live)</text>
+
+  <rect x="575" y="195" width="250" height="150" rx="10" fill="#1e293b" stroke="#06b6d4" stroke-width="1.5"/>
+  <text x="590" y="225" fill="#f8fafc" font-family="sans-serif" font-size="13" font-weight="bold">AI Subtask Generation via Gemini</text>
+  <text x="590" y="248" fill="#94a3b8" font-family="sans-serif" font-size="11">✓ Parsed 4 atomic micro-tasks</text>
+  <text x="590" y="268" fill="#94a3b8" font-family="sans-serif" font-size="11">✓ Synced to MongoDB instantly</text>
+  <rect x="590" y="295" width="70" height="22" rx="4" fill="url(#geminiGrad)"/>
+  <text x="625" y="310" fill="#ffffff" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Gemini AI</text>
+  <rect x="670" y="295" width="70" height="22" rx="4" fill="#06b6d4" fill-opacity="0.2"/>
+  <text x="705" y="310" fill="#06b6d4" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Socket.io</text>
+
+  <!-- Col 3: Done -->
+  <rect x="870" y="140" width="280" height="520" rx="12" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
+  <text x="890" y="172" fill="#10b981" font-family="sans-serif" font-size="14" font-weight="bold">Done (Completed)</text>
+
+  <rect x="885" y="195" width="250" height="110" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="1"/>
+  <text x="900" y="225" fill="#f8fafc" font-family="sans-serif" font-size="13" font-weight="bold">AWS S3 Pre-signed Uploads</text>
+  <text x="900" y="248" fill="#94a3b8" font-family="sans-serif" font-size="11">Direct client-to-bucket pipeline</text>
+  <rect x="900" y="268" width="60" height="20" rx="4" fill="#10b981" fill-opacity="0.2"/>
+  <text x="930" y="282" fill="#10b981" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Cloud</text>
+</svg>

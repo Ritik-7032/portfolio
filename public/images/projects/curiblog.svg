@@ -1,0 +1,32 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a14" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" rx="16" fill="url(#bg4)"/>
+  <rect width="1200" height="52" fill="#0f172a" stroke="#1e293b"/>
+  <circle cx="30" cy="26" r="6" fill="#ef4444"/><circle cx="50" cy="26" r="6" fill="#f59e0b"/><circle cx="70" cy="26" r="6" fill="#10b981"/>
+  <text x="600" y="31" fill="#94a3b8" font-family="sans-serif" font-size="12" text-anchor="middle">curiblog.dev/posts/distributed-queues-guide</text>
+
+  <!-- Article View -->
+  <rect x="180" y="85" width="840" height="570" rx="16" fill="#0f172a" stroke="#1e293b"/>
+  <text x="220" y="140" fill="#818cf8" font-family="monospace" font-size="13">#DISTRIBUTED SYSTEMS • ARCHITECTURE</text>
+  <text x="220" y="185" fill="#ffffff" font-family="sans-serif" font-size="26" font-weight="bold">Scaling Message Queues with BullMQ & Redis</text>
+  <text x="220" y="220" fill="#94a3b8" font-family="sans-serif" font-size="13">Published by Ritik Kumar • 6 min read • 420 Claps</text>
+  
+  <!-- Code Snippet block in blog -->
+  <rect x="220" y="250" width="760" height="170" rx="10" fill="#020617" stroke="#334155"/>
+  <text x="245" y="285" fill="#38bdf8" font-family="monospace" font-size="13">const emailQueue = new Queue('emailPipeline', { connection: redisConfig });</text>
+  <text x="245" y="315" fill="#a855f7" font-family="monospace" font-size="13">await emailQueue.add('sendBulkEmail', { recipients, template }, { attempts: 3 });</text>
+  <text x="245" y="345" fill="#10b981" font-family="monospace" font-size="13">// Atomic Redis Lua Token Bucket Rate Limiter</text>
+  <text x="245" y="375" fill="#f59e0b" font-family="monospace" font-size="13">const allowed = await redis.eval(luaRateLimiterScript, 1, userKey, limit, window);</text>
+
+  <text x="220" y="470" fill="#cbd5e1" font-family="sans-serif" font-size="14" leading="24">
+    In modern backend engineering, preventing server event-loop blocking during massive batch dispatches requires
+  </text>
+  <text x="220" y="495" fill="#cbd5e1" font-family="sans-serif" font-size="14">
+    decoupling ingestion from execution using distributed background workers and atomic Lua scripting.
+  </text>
+</svg>

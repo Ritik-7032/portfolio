@@ -1,0 +1,37 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f071a" />
+      <stop offset="100%" stop-color="#030712" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" rx="16" fill="url(#bg5)"/>
+  <rect width="1200" height="52" fill="#0f172a" stroke="#1e293b"/>
+  <circle cx="30" cy="26" r="6" fill="#ef4444"/><circle cx="50" cy="26" r="6" fill="#f59e0b"/><circle cx="70" cy="26" r="6" fill="#10b981"/>
+  <text x="600" y="31" fill="#94a3b8" font-family="sans-serif" font-size="12" text-anchor="middle">tingl.social/messages/active-room</text>
+
+  <!-- Left Chat list -->
+  <rect x="60" y="80" width="300" height="580" rx="14" fill="#0f172a" stroke="#1e293b"/>
+  <text x="85" y="125" fill="#f8fafc" font-family="sans-serif" font-size="20" font-weight="bold">Tingl Chat</text>
+  <circle cx="280" cy="120" r="5" fill="#10b981"/>
+  
+  <rect x="75" y="150" width="270" height="65" rx="10" fill="#1e293b"/>
+  <circle cx="105" cy="182" r="18" fill="#8b5cf6"/>
+  <text x="135" y="178" fill="#ffffff" font-family="sans-serif" font-size="13" font-weight="bold">Engineering Guild</text>
+  <text x="135" y="196" fill="#38bdf8" font-family="sans-serif" font-size="11">Ritik: Socket.io connected!</text>
+
+  <!-- Right Chat conversation window -->
+  <rect x="380" y="80" width="760" height="580" rx="14" fill="#0f172a" stroke="#1e293b"/>
+  <text x="410" y="125" fill="#f8fafc" font-family="sans-serif" font-size="18" font-weight="bold"># Developers Hub</text>
+  
+  <!-- Chat bubbles -->
+  <rect x="410" y="170" width="380" height="60" rx="12" fill="#1e293b"/>
+  <text x="430" y="198" fill="#cbd5e1" font-family="sans-serif" font-size="13">Hey team! Are the WebRTC video feeds synced?</text>
+  
+  <rect x="680" y="250" width="430" height="70" rx="12" fill="#8b5cf6"/>
+  <text x="700" y="278" fill="#ffffff" font-family="sans-serif" font-size="13" font-weight="bold">Ritik Kumar (You)</text>
+  <text x="700" y="300" fill="#ffffff" font-family="sans-serif" font-size="13">Yes, sub-50ms latency with WebSocket rooms!</text>
+
+  <rect x="410" y="580" width="700" height="50" rx="12" fill="#020617" stroke="#334155"/>
+  <text x="435" y="612" fill="#64748b" font-family="sans-serif" font-size="13">Type a live message or attach media...</text>
+</svg>

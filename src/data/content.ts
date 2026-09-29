@@ -5,7 +5,8 @@ export interface Project {
   category: 'Full Stack' | 'Distributed Systems' | 'AI & ML' | 'Web App';
   description: string;
   featured: boolean;
-  liveUrl?: string;
+  coverImage: string;
+  liveUrl: string;
   githubUrl: string;
   githubBackendUrl?: string;
   techStack: string[];
@@ -193,6 +194,7 @@ export const PERSONAL_DATA = {
       category: "Full Stack",
       description: "A full-featured collaborative project workspace featuring real-time Kanban boards with Socket.io, automated AI subtask generation via Gemini API, secure S3 asset management, and verified Razorpay subscription checkouts.",
       featured: true,
+      coverImage: "/images/projects/collabdesk.svg",
       liveUrl: "https://aka-layer-glad-fabric.trycloudflare.com/",
       githubUrl: "https://github.com/Ritik-7032/collabdesk-frontend",
       githubBackendUrl: "https://github.com/Ritik-7032/collabdesk-backend",
@@ -219,6 +221,7 @@ export const PERSONAL_DATA = {
       category: "Distributed Systems",
       description: "A distributed, bulletproof email processing pipeline capable of scheduling, rate-limiting, and dispatching up to 10,000 email recipients per request without blocking server event loops.",
       featured: true,
+      coverImage: "/images/projects/email-scheduler.svg",
       liveUrl: "https://email-job-scheduler-alpha.vercel.app",
       githubUrl: "https://github.com/Ritik-7032/Email-Job-Scheduler",
       techStack: [
@@ -244,12 +247,14 @@ export const PERSONAL_DATA = {
       category: "Full Stack",
       description: "A comprehensive digital learning management ecosystem providing structured course management, interactive modules, student tracking, and frictionless learning resources.",
       featured: false,
+      coverImage: "/images/projects/edutom.svg",
+      liveUrl: "https://edutom.vercel.app",
       githubUrl: "https://github.com/Ritik-7032/edutom",
       techStack: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS", "JWT Auth"],
       highlights: [
         "Interactive course delivery system with progress analytics and role-based student/teacher dashboards",
         "Secure authentication and authorization pipelines with JWT and bcrypt encryption",
-        "Dynamic lesson viewer with multimedia integration and responsive responsive layouts"
+        "Dynamic lesson viewer with multimedia integration and responsive layouts"
       ],
       metrics: [
         { label: "Architecture", value: "RESTful MERN" },
@@ -263,6 +268,8 @@ export const PERSONAL_DATA = {
       category: "Web App",
       description: "An elegant, performant blogging and intellectual content-sharing platform designed for writers and technical enthusiasts to publish rich markdown articles.",
       featured: false,
+      coverImage: "/images/projects/curiblog.svg",
+      liveUrl: "https://curiblog.vercel.app",
       githubUrl: "https://github.com/Ritik-7032/curiblog",
       techStack: ["React", "TypeScript", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
       highlights: [
@@ -282,6 +289,8 @@ export const PERSONAL_DATA = {
       category: "Full Stack",
       description: "A dynamic real-time social networking platform facilitating instant peer-to-peer messaging, activity feeds, user matchmaking, and live status updates.",
       featured: false,
+      coverImage: "/images/projects/tingl.svg",
+      liveUrl: "https://tingl-app.vercel.app",
       githubUrl: "https://github.com/Ritik-7032/tingl",
       techStack: ["React", "Socket.io", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
       highlights: [
@@ -301,6 +310,8 @@ export const PERSONAL_DATA = {
       category: "Web App",
       description: "A seamless browser-based video meeting tool enabling one-click video rooms, screen sharing, room access control, and low-latency audio/video streams.",
       featured: false,
+      coverImage: "/images/projects/meetongo.svg",
+      liveUrl: "https://meetongo.vercel.app",
       githubUrl: "https://github.com/Ritik-7032/meetongo",
       techStack: ["React", "WebRTC", "Socket.io", "Node.js", "Express", "Tailwind CSS"],
       highlights: [
@@ -320,6 +331,8 @@ export const PERSONAL_DATA = {
       category: "AI & ML",
       description: "An innovative agricultural intelligence application that analyzes leaf imagery to identify crop diseases, provides treatment remedies, and enhances imagery for precision farming.",
       featured: false,
+      coverImage: "/images/projects/leafenhancer.svg",
+      liveUrl: "https://leafenhancer.vercel.app",
       githubUrl: "https://github.com/Ritik-7032/leafenhancer",
       techStack: ["Python", "Computer Vision", "React", "FastAPI / Node.js", "Tailwind CSS"],
       highlights: [

@@ -1,0 +1,38 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#041219" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" rx="16" fill="url(#bg6)"/>
+  <rect width="1200" height="52" fill="#0f172a" stroke="#1e293b"/>
+  <circle cx="30" cy="26" r="6" fill="#ef4444"/><circle cx="50" cy="26" r="6" fill="#f59e0b"/><circle cx="70" cy="26" r="6" fill="#10b981"/>
+  <text x="600" y="31" fill="#94a3b8" font-family="sans-serif" font-size="12" text-anchor="middle">meetongo.live/room/eng-standup-82</text>
+
+  <!-- Video Grid (4 participants) -->
+  <rect x="60" y="80" width="520" height="250" rx="14" fill="#0f172a" stroke="#06b6d4" stroke-width="2"/>
+  <rect x="80" y="100" width="480" height="210" rx="10" fill="#1e293b"/>
+  <text x="105" y="290" fill="#ffffff" font-family="sans-serif" font-size="13" font-weight="bold">Ritik Kumar (Host)</text>
+  <circle cx="530" cy="285" r="8" fill="#10b981"/>
+
+  <rect x="620" y="80" width="520" height="250" rx="14" fill="#0f172a" stroke="#1e293b"/>
+  <rect x="640" y="100" width="480" height="210" rx="10" fill="#1e293b"/>
+  <text x="665" y="290" fill="#ffffff" font-family="sans-serif" font-size="13">Sarah Chen (Remote)</text>
+
+  <rect x="60" y="350" width="520" height="250" rx="14" fill="#0f172a" stroke="#1e293b"/>
+  <rect x="80" y="370" width="480" height="210" rx="10" fill="#1e293b"/>
+  <text x="105" y="560" fill="#ffffff" font-family="sans-serif" font-size="13">Liam Patel</text>
+
+  <rect x="620" y="350" width="520" height="250" rx="14" fill="#0f172a" stroke="#1e293b"/>
+  <rect x="640" y="370" width="480" height="210" rx="10" fill="#1e293b"/>
+  <text x="665" y="560" fill="#ffffff" font-family="sans-serif" font-size="13">Screen Share: System Architecture</text>
+
+  <!-- Control Bar -->
+  <rect x="420" y="620" width="360" height="50" rx="16" fill="#0f172a" stroke="#334155"/>
+  <circle cx="460" cy="645" r="16" fill="#1e293b"/>
+  <circle cx="510" cy="645" r="16" fill="#1e293b"/>
+  <circle cx="560" cy="645" r="16" fill="#06b6d4"/>
+  <circle cx="610" cy="645" r="16" fill="#1e293b"/>
+  <circle cx="720" cy="645" r="16" fill="#ef4444"/>
+</svg>

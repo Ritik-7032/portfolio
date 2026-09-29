@@ -1,0 +1,35 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg7" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#041a0f" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" rx="16" fill="url(#bg7)"/>
+  <rect width="1200" height="52" fill="#0f172a" stroke="#1e293b"/>
+  <circle cx="30" cy="26" r="6" fill="#ef4444"/><circle cx="50" cy="26" r="6" fill="#f59e0b"/><circle cx="70" cy="26" r="6" fill="#10b981"/>
+  <text x="600" y="31" fill="#94a3b8" font-family="sans-serif" font-size="12" text-anchor="middle">leafenhancer.ai/diagnose/scan-894</text>
+
+  <text x="60" y="105" fill="#f8fafc" font-family="sans-serif" font-size="24" font-weight="bold">LeafEnhancer — AI Crop Pathology Diagnostics</text>
+
+  <!-- Left: Image Scanner -->
+  <rect x="60" y="135" width="520" height="510" rx="14" fill="#0f172a" stroke="#10b981" stroke-width="2"/>
+  <rect x="90" y="165" width="460" height="380" rx="10" fill="#064e3b"/>
+  <text x="320" y="360" fill="#6ee7b7" font-family="sans-serif" font-size="18" text-anchor="middle">🌿 Leaf Visual Analysis Complete</text>
+  <text x="320" y="390" fill="#a7f3d0" font-family="sans-serif" font-size="13" text-anchor="middle">Resolution: 4K Enhanced</text>
+
+  <!-- Right: Diagnostic Metrics -->
+  <rect x="620" y="135" width="520" height="510" rx="14" fill="#0f172a" stroke="#1e293b"/>
+  <text x="650" y="180" fill="#f8fafc" font-family="sans-serif" font-size="20" font-weight="bold">Disease Detection Results</text>
+
+  <rect x="650" y="210" width="460" height="90" rx="10" fill="#1e293b"/>
+  <text x="675" y="245" fill="#94a3b8" font-family="sans-serif" font-size="12">DIAGNOSED CONDITION</text>
+  <text x="675" y="275" fill="#ef4444" font-family="sans-serif" font-size="18" font-weight="bold">Early Blight (Alternaria Solani)</text>
+  <text x="1020" y="275" fill="#10b981" font-family="sans-serif" font-size="16" font-weight="bold">96.8% Conf.</text>
+
+  <rect x="650" y="320" width="460" height="150" rx="10" fill="#1e293b"/>
+  <text x="675" y="355" fill="#10b981" font-family="sans-serif" font-size="14" font-weight="bold">Recommended Agricultural Treatment</text>
+  <text x="675" y="385" fill="#cbd5e1" font-family="sans-serif" font-size="12">• Apply organic copper-based fungicide spray</text>
+  <text x="675" y="410" fill="#cbd5e1" font-family="sans-serif" font-size="12">• Improve soil aeration and morning drip irrigation</text>
+  <text x="675" y="435" fill="#cbd5e1" font-family="sans-serif" font-size="12">• Prune infected bottom leaves to restrict fungal spread</text>
+</svg>
