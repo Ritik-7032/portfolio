@@ -222,7 +222,7 @@ export const PERSONAL_DATA = {
       description: "A distributed, bulletproof email processing pipeline capable of scheduling, rate-limiting, and dispatching up to 10,000 email recipients per request without blocking server event loops.",
       featured: true,
       coverImage: "/images/projects/email-scheduler.svg",
-      liveUrl: "https://email-job-scheduler-alpha.vercel.app",
+      liveUrl: "https://email-job-scheduler-alpha.vercel.app/",
       githubUrl: "https://github.com/Ritik-7032/Email-Job-Scheduler",
       techStack: [
         "TypeScript", "Express", "BullMQ", "Redis", "PostgreSQL",
@@ -248,7 +248,7 @@ export const PERSONAL_DATA = {
       description: "A comprehensive digital learning management ecosystem providing structured course management, interactive modules, student tracking, and frictionless learning resources.",
       featured: false,
       coverImage: "/images/projects/edutom.svg",
-      liveUrl: "https://edutom.vercel.app",
+      liveUrl: "https://edutom-rose.vercel.app/",
       githubUrl: "https://github.com/Ritik-7032/edutom",
       techStack: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS", "JWT Auth"],
       highlights: [
@@ -269,7 +269,7 @@ export const PERSONAL_DATA = {
       description: "An elegant, performant blogging and intellectual content-sharing platform designed for writers and technical enthusiasts to publish rich markdown articles.",
       featured: false,
       coverImage: "/images/projects/curiblog.svg",
-      liveUrl: "https://curiblog.vercel.app",
+      liveUrl: "https://blog-app-liard.vercel.app/",
       githubUrl: "https://github.com/Ritik-7032/curiblog",
       techStack: ["React", "TypeScript", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
       highlights: [
