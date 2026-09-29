@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Download, Code2, Sparkles, Volume2, VolumeX } from 'lucide-react';
+import { Menu, X, FileText, Sparkles, Download } from 'lucide-react';
 import { PERSONAL_DATA } from '../../data/content';
 
 interface NavbarProps {
   activeSection: string;
+  onResumeOpen: () => void;
 }
 
 const NAV_LINKS = [
@@ -18,11 +19,10 @@ const NAV_LINKS = [
   { name: 'Contact', href: '#contact' },
 ];
 
-export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
+export const Navbar: React.FC<NavbarProps> = ({ activeSection, onResumeOpen }) => {
   const [scrolled, setScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [ambientSound, setAmbientSound] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -97,25 +97,22 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
 
         {/* Right Action buttons */}
         <div className="pointer-events-auto flex items-center gap-2 sm:gap-3">
-          {/* Resume Download */}
-          <motion.a
-            href={PERSONAL_DATA.resumeUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            download="Ritik_Kumar_Resume.pdf"
+          {/* Interactive Resume View Button */}
+          <motion.button
+            onClick={onResumeOpen}
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white shadow-lg shadow-cyan-500/20 transition-all hover:scale-105 active:scale-95"
+            className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-heading font-bold bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white shadow-lg shadow-cyan-500/25 transition-all hover:scale-105 active:scale-95 cursor-pointer"
           >
-            <Download className="w-3.5 h-3.5" />
+            <FileText className="w-3.5 h-3.5" />
             <span>Resume</span>
-          </motion.a>
+          </motion.button>
 
           {/* Mobile Hamburger Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-xl glass-panel border border-white/10 text-slate-300 hover:text-white"
+            className="lg:hidden p-2 rounded-xl glass-panel border border-white/10 text-slate-300 hover:text-white cursor-pointer"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -154,14 +151,16 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
               </a>
             ))}
             <div className="pt-3 border-t border-white/10 mt-2 flex flex-col gap-2">
-              <a
-                href={PERSONAL_DATA.resumeUrl}
-                download="Ritik_Kumar_Resume.pdf"
-                className="w-full py-3 rounded-xl text-center text-sm font-semibold bg-cyan-500 hover:bg-cyan-400 text-white flex items-center justify-center gap-2"
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onResumeOpen();
+                }}
+                className="w-full py-3 rounded-xl text-center text-sm font-semibold bg-cyan-500 hover:bg-cyan-400 text-white flex items-center justify-center gap-2 cursor-pointer"
               >
-                <Download className="w-4 h-4" />
-                <span>Download Resume</span>
-              </a>
+                <FileText className="w-4 h-4" />
+                <span>View Full Resume</span>
+              </button>
             </div>
           </motion.div>
         )}

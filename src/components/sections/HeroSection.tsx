@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles, Download, Mail, Github, Linkedin, Code2 } from 'lucide-react';
+import { Sparkles, FileText, Mail, Github, Linkedin, Code2 } from 'lucide-react';
 import { HeroCanvas } from '../3d/HeroCanvas';
 import { MagneticButton } from '../ui/MagneticButton';
 import { PERSONAL_DATA } from '../../data/content';
 import { useMousePosition } from '../../hooks/useMousePosition';
 
-export const HeroSection: React.FC = () => {
+interface HeroSectionProps {
+  onResumeOpen: () => void;
+}
+
+export const HeroSection: React.FC<HeroSectionProps> = ({ onResumeOpen }) => {
   const mousePos = useMousePosition();
   const [roleIndex, setRoleIndex] = useState(0);
   const [displayText, setDisplayText] = useState('');
@@ -119,15 +123,13 @@ export const HeroSection: React.FC = () => {
             Explore 7+ Projects
           </MagneticButton>
 
+          {/* Interactive Resume Modal Button */}
           <MagneticButton
-            as="a"
-            href={PERSONAL_DATA.resumeUrl}
-            target="_blank"
-            download="Ritik_Kumar_Resume.pdf"
-            className="px-6 py-3.5 rounded-2xl bg-slate-900/90 hover:bg-slate-800 text-white font-heading font-semibold text-sm border border-cyan-500/30 transition-all hover:scale-105 active:scale-95 shadow-lg"
+            onClick={onResumeOpen}
+            className="px-6 py-3.5 rounded-2xl bg-slate-900/90 hover:bg-slate-800 text-white font-heading font-semibold text-sm border border-cyan-500/30 transition-all hover:scale-105 active:scale-95 shadow-lg cursor-pointer"
           >
-            <Download className="w-4 h-4 mr-2 text-cyan-400" />
-            Download Resume
+            <FileText className="w-4 h-4 mr-2 text-cyan-400" />
+            View Resume
           </MagneticButton>
 
           <MagneticButton

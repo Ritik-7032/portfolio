@@ -3,6 +3,7 @@ import { useSmoothScroll } from './hooks/useSmoothScroll';
 import { BackgroundGlows } from './components/layout/BackgroundGlows';
 import { CustomCursor } from './components/ui/CustomCursor';
 import { Navbar } from './components/ui/Navbar';
+import { ResumeModal } from './components/ui/ResumeModal';
 import { Preloader } from './components/sections/Preloader';
 import { HeroSection } from './components/sections/HeroSection';
 import { AboutSection } from './components/sections/AboutSection';
@@ -20,6 +21,7 @@ export function App() {
   useSmoothScroll();
   const [loading, setLoading] = useState(true);
   const [activeSection, setActiveSection] = useState('hero');
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
 
   // Track active section for navbar indicator
   useEffect(() => {
@@ -70,11 +72,20 @@ export function App() {
       <BackgroundGlows />
 
       {/* 4. Glassmorphism Navigation Bar */}
-      <Navbar activeSection={activeSection} />
+      <Navbar 
+        activeSection={activeSection} 
+        onResumeOpen={() => setIsResumeOpen(true)} 
+      />
 
-      {/* 5. Main Portfolio Content Sections */}
+      {/* 5. Interactive Full-Screen Resume Modal */}
+      <ResumeModal
+        isOpen={isResumeOpen}
+        onClose={() => setIsResumeOpen(false)}
+      />
+
+      {/* 6. Main Portfolio Content Sections */}
       <main className="relative z-10">
-        <HeroSection />
+        <HeroSection onResumeOpen={() => setIsResumeOpen(true)} />
         <AboutSection />
         <SkillsSection />
         <ProjectsSection />
@@ -86,7 +97,7 @@ export function App() {
         <ContactSection />
       </main>
 
-      {/* 6. Footer */}
+      {/* 7. Footer */}
       <Footer />
     </div>
   );
