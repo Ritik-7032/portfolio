@@ -2,14 +2,14 @@ export interface Project {
   id: string;
   title: string;
   subtitle: string;
+  category: 'Full Stack' | 'Distributed Systems' | 'AI & ML' | 'Web App';
   description: string;
   featured: boolean;
-  liveUrl: string;
+  liveUrl?: string;
   githubUrl: string;
   githubBackendUrl?: string;
   techStack: string[];
   highlights: string[];
-  image: string;
   metrics?: { label: string; value: string }[];
 }
 
@@ -63,7 +63,7 @@ export const PERSONAL_DATA = {
     "Full Stack Developer",
     "Backend & Distributed Systems Engineer",
     "C++ & DSA Problem Solver",
-    "Lifter & Vocalist"
+    "Lifter (370kg Total) & Vocalist"
   ],
   status: "Open to SDE / Full Stack / Backend / Frontend Roles",
   email: "singhritik7032@gmail.com",
@@ -76,12 +76,12 @@ export const PERSONAL_DATA = {
   
   about: {
     intro: "I am a Full Stack Developer and B.Tech undergraduate at IIIT Ranchi who thrives at the intersection of performant backend architectures, intuitive 3D/modern web interfaces, and rigorous algorithmic problem solving.",
-    subIntro: "With production experience from a remote web engineering internship, 2 full-stack cloud deployments, and 250+ DSA problems conquered in C++, I engineer scalable solutions built for resilience and speed.",
+    subIntro: "With production experience from a remote web engineering internship, 7+ full-stack and distributed projects deployed online, and 250+ DSA problems conquered in C++, I engineer scalable solutions built for resilience and speed.",
     stats: [
       { id: "dsa", label: "DSA Problems Solved", value: 250, suffix: "+", subtext: "197 on LeetCode + C++ practice" },
       { id: "jee", label: "JEE Main 2023", value: 95, suffix: "%ile", subtext: "Top 5% nationwide in engineering exam" },
       { id: "internship", label: "Remote Internship", value: 3, suffix: " Mo", subtext: "Briscent Global LLC (Client Projects)" },
-      { id: "projects", label: "Deployed Full-Stack Apps", value: 2, suffix: "", subtext: "Production architectures & cloud CI/CD" }
+      { id: "projects", label: "Shipped Projects", value: 7, suffix: "+", subtext: "Production architectures & apps" }
     ]
   },
 
@@ -190,9 +190,10 @@ export const PERSONAL_DATA = {
       id: "collabdesk",
       title: "CollabDesk",
       subtitle: "AI-Powered Real-Time Team Workspace",
+      category: "Full Stack",
       description: "A full-featured collaborative project workspace featuring real-time Kanban boards with Socket.io, automated AI subtask generation via Gemini API, secure S3 asset management, and verified Razorpay subscription checkouts.",
       featured: true,
-      liveUrl: "https://aka-layer-glad-fabric.trycloudflare.com/", // Temporary live link easily configurable
+      liveUrl: "https://aka-layer-glad-fabric.trycloudflare.com/",
       githubUrl: "https://github.com/Ritik-7032/collabdesk-frontend",
       githubBackendUrl: "https://github.com/Ritik-7032/collabdesk-backend",
       techStack: [
@@ -209,13 +210,13 @@ export const PERSONAL_DATA = {
         { label: "Real-Time Sync", value: "< 50ms" },
         { label: "Cloud Storage", value: "AWS S3" },
         { label: "Deployment", value: "AWS EC2 + PM2" }
-      ],
-      image: "/images/collabdesk-preview.png"
+      ]
     },
     {
       id: "email-job-scheduler",
       title: "Email Job Scheduler",
       subtitle: "High-Throughput Asynchronous Email Engine",
+      category: "Distributed Systems",
       description: "A distributed, bulletproof email processing pipeline capable of scheduling, rate-limiting, and dispatching up to 10,000 email recipients per request without blocking server event loops.",
       featured: true,
       liveUrl: "https://email-job-scheduler-alpha.vercel.app",
@@ -234,8 +235,102 @@ export const PERSONAL_DATA = {
         { label: "Batch Capacity", value: "10,000 Recipient/Req" },
         { label: "Rate Limiter", value: "Atomic Lua Script" },
         { label: "Queue Engine", value: "BullMQ + Redis" }
+      ]
+    },
+    {
+      id: "edutom",
+      title: "Edutom",
+      subtitle: "Smart Educational & Learning Platform",
+      category: "Full Stack",
+      description: "A comprehensive digital learning management ecosystem providing structured course management, interactive modules, student tracking, and frictionless learning resources.",
+      featured: false,
+      githubUrl: "https://github.com/Ritik-7032/edutom",
+      techStack: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS", "JWT Auth"],
+      highlights: [
+        "Interactive course delivery system with progress analytics and role-based student/teacher dashboards",
+        "Secure authentication and authorization pipelines with JWT and bcrypt encryption",
+        "Dynamic lesson viewer with multimedia integration and responsive responsive layouts"
       ],
-      image: "/images/email-scheduler-preview.png"
+      metrics: [
+        { label: "Architecture", value: "RESTful MERN" },
+        { label: "UI / Styling", value: "Tailwind CSS" }
+      ]
+    },
+    {
+      id: "curiblog",
+      title: "CuriBlog",
+      subtitle: "Modern Content & Knowledge Publishing Platform",
+      category: "Web App",
+      description: "An elegant, performant blogging and intellectual content-sharing platform designed for writers and technical enthusiasts to publish rich markdown articles.",
+      featured: false,
+      githubUrl: "https://github.com/Ritik-7032/curiblog",
+      techStack: ["React", "TypeScript", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
+      highlights: [
+        "Rich text and markdown editor with instant preview and SEO-friendly slug generation",
+        "Categorized exploration, tag filtering, reader comments, and claps/reactions system",
+        "Optimized image delivery and responsive typography for distraction-free reading"
+      ],
+      metrics: [
+        { label: "Content Engine", value: "Markdown Parser" },
+        { label: "Database", value: "MongoDB Atlas" }
+      ]
+    },
+    {
+      id: "tingl",
+      title: "Tingl",
+      subtitle: "Real-Time Social Networking & Chat App",
+      category: "Full Stack",
+      description: "A dynamic real-time social networking platform facilitating instant peer-to-peer messaging, activity feeds, user matchmaking, and live status updates.",
+      featured: false,
+      githubUrl: "https://github.com/Ritik-7032/tingl",
+      techStack: ["React", "Socket.io", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
+      highlights: [
+        "Ultra-low latency instant messaging powered by bidirectional WebSocket rooms",
+        "User profile customization, media sharing, and presence status indicators",
+        "End-to-end sanitized input handling and responsive mobile-first interface"
+      ],
+      metrics: [
+        { label: "Messaging", value: "Socket.io Rooms" },
+        { label: "Latency", value: "Real-time Sync" }
+      ]
+    },
+    {
+      id: "meetongo",
+      title: "MeetOnGo",
+      subtitle: "Instant Video Conferencing & Virtual Meetings",
+      category: "Web App",
+      description: "A seamless browser-based video meeting tool enabling one-click video rooms, screen sharing, room access control, and low-latency audio/video streams.",
+      featured: false,
+      githubUrl: "https://github.com/Ritik-7032/meetongo",
+      techStack: ["React", "WebRTC", "Socket.io", "Node.js", "Express", "Tailwind CSS"],
+      highlights: [
+        "Peer-to-peer WebRTC video and audio conferencing with interactive controls",
+        "Screen sharing, room creation with unique shareable tokens, and in-call text chat",
+        "Optimized bandwidth consumption with adaptive stream resolution"
+      ],
+      metrics: [
+        { label: "Protocol", value: "WebRTC + P2P" },
+        { label: "Setup", value: "Zero-Install Rooms" }
+      ]
+    },
+    {
+      id: "leafenhancer",
+      title: "LeafEnhancer",
+      subtitle: "AI Plant Disease Detection & Crop Health",
+      category: "AI & ML",
+      description: "An innovative agricultural intelligence application that analyzes leaf imagery to identify crop diseases, provides treatment remedies, and enhances imagery for precision farming.",
+      featured: false,
+      githubUrl: "https://github.com/Ritik-7032/leafenhancer",
+      techStack: ["Python", "Computer Vision", "React", "FastAPI / Node.js", "Tailwind CSS"],
+      highlights: [
+        "Automated leaf pathology recognition and disease diagnostic suggestions",
+        "Image preprocessing, enhancement filters, and confidence score generation",
+        "Clean farmer-centric UI designed for accessibility on mobile devices"
+      ],
+      metrics: [
+        { label: "Domain", value: "AgroTech / AI" },
+        { label: "Analysis", value: "Visual Diagnostics" }
+      ]
     }
   ] as Project[],
 
@@ -365,21 +460,25 @@ export const PERSONAL_DATA = {
       subtitle: "Building mental grit, structural integrity, and consistency through progressive overload.",
       quote: "The discipline forged under iron translates directly to engineering resilient, high-pressure codebases.",
       photo: "/images/ritik-gym.jpg",
-      attributes: [
-        { label: "Philosophy", value: "Progressive Overload" },
-        { label: "Mindset", value: "Form Over Ego" },
-        { label: "Consistency", value: "Day In, Day Out" }
+      records: [
+        { lift: "Deadlift", weight: "150 kg", lbs: "330 lbs", badge: "Max Pull" },
+        { lift: "Squats", weight: "120 kg", lbs: "264 lbs", badge: "Leg Drive" },
+        { lift: "Bench Press", weight: "100 kg", lbs: "220 lbs", badge: "Chest & Power" },
+        { lift: "Big 3 Total", weight: "370 kg", lbs: "815 lbs", badge: "Combined Total" }
       ],
-      // Placeholder for personal PRs if user wishes to update
-      personalRecordPlaceholder: "Custom PRs / lifting numbers can be configured here in content.ts"
+      attributes: [
+        { label: "Deadlift 1RM", value: "150 KG (330 lbs)" },
+        { label: "Squat 1RM", value: "120 KG (264 lbs)" },
+        { label: "Bench 1RM", value: "100 KG (220 lbs)" }
+      ]
     },
     singing: {
       title: "Harmonics & Expression: Vocal Artistry",
       subtitle: "Finding resonance in music, rhythm, and soulful vocal expressions.",
       quote: "Engineering is logic structured into code; singing is passion structured into sound.",
-      voiceClipSlot: "/audio/vocal-demo.mp3", // Slot for user audio file
-      audioSampleLabel: "Vocal Melody Preview & Audio Wave Visualizer",
-      placeholderNotice: "Drop your own audio file to /audio/vocal-demo.mp3 anytime!"
+      songName: "Teri Meri Prem Kahani (Vocal Performance by Ritik)",
+      voiceClipSlot: "/audio/vocal-demo.mp3",
+      audioSampleLabel: "Listen to Ritik's Live Vocal Recording"
     }
   },
 

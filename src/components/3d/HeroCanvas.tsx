@@ -1,90 +1,98 @@
 import React, { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Float, MeshDistortMaterial } from '@react-three/drei';
+import { Float, Points, PointMaterial } from '@react-three/drei';
 import * as THREE from 'three';
 
-// Floating Geometric Core that reacts to cursor
-function FloatingCrystal({ mousePos }: { mousePos: { x: number; y: number } }) {
-  const meshRef = useRef<THREE.Mesh>(null);
-  const outerRef = useRef<THREE.Group>(null);
+// Ambient Orbital Geometric Nodes
+function AmbientCyberCore({ mousePos }: { mousePos: { normalizedX: number; normalizedY: number } }) {
+  const coreGroup = useRef<THREE.Group>(null);
+  const ring1Ref = useRef<THREE.Mesh>(null);
+  const ring2Ref = useRef<THREE.Mesh>(null);
+  const ring3Ref = useRef<THREE.Mesh>(null);
 
   useFrame((state, delta) => {
-    if (!meshRef.current || !outerRef.current) return;
+    if (!coreGroup.current) return;
     
-    // Smooth rotation
-    meshRef.current.rotation.x += delta * 0.3;
-    meshRef.current.rotation.y += delta * 0.4;
+    // Subtle rotation
+    if (ring1Ref.current) ring1Ref.current.rotation.z += delta * 0.25;
+    if (ring2Ref.current) ring2Ref.current.rotation.x += delta * 0.3;
+    if (ring3Ref.current) ring3Ref.current.rotation.y += delta * 0.2;
 
-    // Follow mouse gently
-    const targetX = mousePos.x * 0.6;
-    const targetY = mousePos.y * 0.6;
-    outerRef.current.rotation.y = THREE.MathUtils.lerp(outerRef.current.rotation.y, targetX, 0.05);
-    outerRef.current.rotation.x = THREE.MathUtils.lerp(outerRef.current.rotation.x, -targetY, 0.05);
+    // Follow mouse softly with high damping so it stays in background
+    const targetX = mousePos.normalizedX * 0.4;
+    const targetY = mousePos.normalizedY * 0.4;
+    coreGroup.current.rotation.y = THREE.MathUtils.lerp(coreGroup.current.rotation.y, targetX, 0.04);
+    coreGroup.current.rotation.x = THREE.MathUtils.lerp(coreGroup.current.rotation.x, -targetY, 0.04);
   });
 
   return (
-    <group ref={outerRef}>
-      <Float speed={2.5} rotationIntensity={1.2} floatIntensity={1.5}>
-        {/* Core distorted energetic mesh */}
-        <mesh ref={meshRef} scale={1.8}>
-          <icosahedronGeometry args={[1.2, 3]} />
-          <MeshDistortMaterial
-            color="#8b5cf6"
-            emissive="#06b6d4"
-            emissiveIntensity={0.6}
-            roughness={0.1}
-            metalness={0.9}
-            distort={0.4}
-            speed={2}
-            wireframe={false}
-          />
-        </mesh>
-
-        {/* Outer Wireframe Cage */}
-        <mesh scale={2.2}>
-          <icosahedronGeometry args={[1.2, 1]} />
-          <meshBasicMaterial
+    <group ref={coreGroup} position={[0, 0, -1]}>
+      <Float speed={2} rotationIntensity={0.6} floatIntensity={0.8}>
+        {/* Delicate Ethereal Wireframe Core - Lower opacity so text is 100% readable */}
+        <mesh scale={2.4}>
+          <icosahedronGeometry args={[1.2, 2]} />
+          <meshStandardMaterial
             color="#38bdf8"
             wireframe={true}
             transparent={true}
-            opacity={0.35}
+            opacity={0.18}
+            roughness={0.2}
+            metalness={0.8}
           />
         </mesh>
 
-        {/* Glowing Orbital Ring 1 */}
-        <mesh rotation={[Math.PI / 3, 0, 0]} scale={2.8}>
-          <torusGeometry args={[1, 0.015, 16, 100]} />
-          <meshBasicMaterial color="#06b6d4" transparent opacity={0.6} />
+        {/* Inner Glowing Shard Core */}
+        <mesh scale={1.1}>
+          <octahedronGeometry args={[1, 0]} />
+          <meshStandardMaterial
+            color="#8b5cf6"
+            emissive="#06b6d4"
+            emissiveIntensity={0.3}
+            wireframe={true}
+            transparent={true}
+            opacity={0.3}
+          />
         </mesh>
 
-        {/* Glowing Orbital Ring 2 */}
-        <mesh rotation={[-Math.PI / 4, Math.PI / 4, 0]} scale={3.1}>
-          <torusGeometry args={[1, 0.012, 16, 100]} />
-          <meshBasicMaterial color="#f43f5e" transparent opacity={0.5} />
+        {/* Orbit Ring 1 */}
+        <mesh ref={ring1Ref} rotation={[Math.PI / 3, 0.2, 0]} scale={3.4}>
+          <torusGeometry args={[1, 0.008, 16, 120]} />
+          <meshBasicMaterial color="#06b6d4" transparent opacity={0.35} />
+        </mesh>
+
+        {/* Orbit Ring 2 */}
+        <mesh ref={ring2Ref} rotation={[-Math.PI / 4, Math.PI / 3, 0]} scale={3.8}>
+          <torusGeometry args={[1, 0.006, 16, 120]} />
+          <meshBasicMaterial color="#ec4899" transparent opacity={0.3} />
+        </mesh>
+
+        {/* Orbit Ring 3 */}
+        <mesh ref={ring3Ref} rotation={[0.4, -Math.PI / 3, Math.PI / 6]} scale={4.2}>
+          <torusGeometry args={[1, 0.005, 16, 120]} />
+          <meshBasicMaterial color="#a855f7" transparent opacity={0.25} />
         </mesh>
       </Float>
     </group>
   );
 }
 
-// Interactive Starfield / Particle Cloud
-function ParticleField({ count = 800 }: { count?: number }) {
+// Interactive Starfield / Particle Nebula
+function StarParticles({ count = 1000 }: { count?: number }) {
   const pointsRef = useRef<THREE.Points>(null);
 
   const [positions, colors] = useMemo(() => {
     const pos = new Float32Array(count * 3);
     const col = new Float32Array(count * 3);
     const colorPalette = [
-      new THREE.Color('#06b6d4'),
-      new THREE.Color('#8b5cf6'),
       new THREE.Color('#38bdf8'),
+      new THREE.Color('#818cf8'),
+      new THREE.Color('#c084fc'),
       new THREE.Color('#f43f5e'),
       new THREE.Color('#ffffff')
     ];
 
     for (let i = 0; i < count; i++) {
-      // Spread in a spherical shell
-      const r = 6 + Math.random() * 14;
+      const r = 4 + Math.random() * 16;
       const theta = Math.random() * 2 * Math.PI;
       const phi = Math.acos(2 * Math.random() - 1);
 
@@ -102,27 +110,21 @@ function ParticleField({ count = 800 }: { count?: number }) {
 
   useFrame((state, delta) => {
     if (!pointsRef.current) return;
-    pointsRef.current.rotation.y += delta * 0.04;
-    pointsRef.current.rotation.x += delta * 0.02;
+    pointsRef.current.rotation.y += delta * 0.03;
+    pointsRef.current.rotation.x += delta * 0.015;
   });
 
   return (
     <points ref={pointsRef}>
       <bufferGeometry>
-        <bufferAttribute
-          attach="attributes-position"
-          args={[positions, 3]}
-        />
-        <bufferAttribute
-          attach="attributes-color"
-          args={[colors, 3]}
-        />
+        <bufferAttribute attach="attributes-position" args={[positions, 3]} />
+        <bufferAttribute attach="attributes-color" args={[colors, 3]} />
       </bufferGeometry>
       <pointsMaterial
-        size={0.06}
+        size={0.05}
         vertexColors
         transparent
-        opacity={0.8}
+        opacity={0.65}
         blending={THREE.AdditiveBlending}
         sizeAttenuation
       />
@@ -136,19 +138,18 @@ interface HeroCanvasProps {
 
 export const HeroCanvas: React.FC<HeroCanvasProps> = ({ mousePos }) => {
   return (
-    <div className="w-full h-full absolute inset-0 pointer-events-none">
+    <div className="w-full h-full absolute inset-0 pointer-events-none z-0">
       <Canvas
-        camera={{ position: [0, 0, 7], fov: 45 }}
+        camera={{ position: [0, 0, 7.5], fov: 45 }}
         dpr={[1, 1.5]}
         gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
       >
-        <ambientLight intensity={0.7} />
-        <directionalLight position={[10, 10, 10]} intensity={1.5} color="#38bdf8" />
-        <pointLight position={[-10, -10, -5]} intensity={1.2} color="#8b5cf6" />
-        <pointLight position={[5, -5, 5]} intensity={1.5} color="#f43f5e" />
-
-        <FloatingCrystal mousePos={{ x: mousePos.normalizedX, y: mousePos.normalizedY }} />
-        <ParticleField count={900} />
+        <ambientLight intensity={0.5} />
+        <directionalLight position={[10, 10, 10]} intensity={1.0} color="#38bdf8" />
+        <pointLight position={[-10, -10, -5]} intensity={0.8} color="#8b5cf6" />
+        
+        <AmbientCyberCore mousePos={mousePos} />
+        <StarParticles count={1100} />
       </Canvas>
     </div>
   );
