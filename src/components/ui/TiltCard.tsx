@@ -10,7 +10,7 @@ interface TiltCardProps {
 export const TiltCard: React.FC<TiltCardProps> = ({
   children,
   className = '',
-  maxTilt = 8,
+  maxTilt = 6,
   glowColor = 'rgba(6, 182, 212, 0.15)',
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
@@ -49,7 +49,6 @@ export const TiltCard: React.FC<TiltCardProps> = ({
       onMouseLeave={handleMouseLeave}
       style={{
         perspective: 1000,
-        transformStyle: 'preserve-3d',
       }}
       className={`relative transition-transform duration-300 ease-out ${className}`}
     >
@@ -58,11 +57,11 @@ export const TiltCard: React.FC<TiltCardProps> = ({
           transform: `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
           transition: 'transform 0.15s ease-out',
         }}
-        className="relative w-full h-full rounded-2xl overflow-hidden"
+        className="relative w-full h-full rounded-3xl"
       >
         {/* Specular glare shine */}
         <div
-          className="pointer-events-none absolute inset-0 z-10 transition-opacity duration-300 rounded-2xl"
+          className="pointer-events-none absolute inset-0 z-10 transition-opacity duration-300 rounded-3xl"
           style={{
             background: `radial-gradient(circle at ${glarePos.x}% ${glarePos.y}%, ${glowColor}, transparent 60%)`,
             opacity: glarePos.opacity,
