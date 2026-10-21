@@ -317,11 +317,13 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
                       TECHNICAL SKILLS
                     </h2>
                     <div className="space-y-1.5 text-xs text-slate-300">
-                      <p><strong className="text-white font-mono">Languages:</strong> C++, JavaScript (ES6+), TypeScript, SQL, HTML5, CSS3</p>
-                      <p><strong className="text-white font-mono">Frontend:</strong> React.js, React Router, Tailwind CSS, Vite, Axios</p>
-                      <p><strong className="text-white font-mono">Backend & Auth:</strong> Node.js, Express.js, REST APIs, Socket.io, BullMQ, Passport.js, Zod, JWT, Google OAuth 2.0</p>
-                      <p><strong className="text-white font-mono">Databases:</strong> PostgreSQL, MongoDB, Redis, Prisma ORM, Mongoose</p>
-                      <p><strong className="text-white font-mono">Cloud & DevOps:</strong> AWS (EC2, S3), Docker, Docker Compose, PM2, Vercel, Render</p>
+                      <p><strong className="text-white font-mono">Languages:</strong> JavaScript (ES6+), TypeScript, SQL, C++, HTML/CSS</p>
+                      <p><strong className="text-white font-mono">Frontend:</strong> React.js, Vite, Tailwind CSS</p>
+                      <p><strong className="text-white font-mono">Backend:</strong> Node.js, Express.js, REST APIs, WebSockets (Socket.io), JWT, OAuth 2.0, Zod</p>
+                      <p><strong className="text-white font-mono">Databases & Queues:</strong> PostgreSQL, MongoDB (Mongoose), Redis, Prisma ORM, BullMQ</p>
+                      <p><strong className="text-white font-mono">Tools & Platforms:</strong> Git, GitHub, GitHub Actions (CI), Docker, AWS (EC2, S3), Vercel, Render, Linux, Postman</p>
+                      <p><strong className="text-white font-mono">Testing & Performance:</strong> Vitest, Supertest, node:test, Autocannon (load testing)</p>
+                      <p><strong className="text-white font-mono">Core Fundamentals:</strong> Data Structures & Algorithms (300+ Solved), OOP, DBMS, OS, Computer Networks</p>
                     </div>
                   </div>
 
@@ -331,10 +333,9 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
                       ACHIEVEMENTS & LEADERSHIP
                     </h2>
                     <ul className="list-disc list-inside space-y-1.5 text-xs text-slate-300">
-                      <li>Secured 95 percentile in JEE Main 2023</li>
-                      <li>Solved 250+ DSA problems in C++ across LeetCode (197) and local practice (50 Days Badge 2025)</li>
-                      <li>Faculty Coordinator, FDP | IIIT Ranchi (4-day program for 50+ participants)</li>
-                      <li>Organizer, Intra-Hostel Volleyball Tournaments | IIIT Ranchi (3 tournaments with 5 teams each)</li>
+                      <li><strong className="text-white">Algorithms:</strong> Solved 300+ data structures and algorithms problems on LeetCode</li>
+                      <li><strong className="text-white">Academics:</strong> Scored above the 95th percentile in JEE Main 2023 among 1 million+ candidates</li>
+                      <li><strong className="text-white">Leadership:</strong> Independently organized a 2-day Faculty Development Program (50+ professors) and 2 volleyball events</li>
                     </ul>
                   </div>
 

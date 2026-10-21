@@ -77,9 +77,9 @@ export const PERSONAL_DATA = {
   
   about: {
     intro: "I am a Full Stack Developer and B.Tech undergraduate at IIIT Ranchi who thrives at the intersection of performant backend architectures, intuitive 3D/modern web interfaces, and rigorous algorithmic problem solving.",
-    subIntro: "With production experience from a remote web engineering internship, 7+ full-stack and distributed projects deployed online, and 250+ DSA problems conquered in C++, I engineer scalable solutions built for resilience and speed.",
+    subIntro: "With production experience from a remote web engineering internship, full-stack and distributed projects deployed online, and 300+ DSA problems conquered in C++, I engineer scalable solutions built for resilience and speed.",
     stats: [
-      { id: "dsa", label: "DSA Problems Solved", value: 250, suffix: "+", subtext: "197 on LeetCode + C++ practice" },
+      { id: "dsa", label: "DSA Problems Solved", value: 300, suffix: "+", subtext: "300+ Solved on LeetCode" },
       { id: "jee", label: "JEE Main 2023", value: 95, suffix: "%ile", subtext: "Top 5% nationwide in engineering exam" },
       { id: "internship", label: "Remote Internship", value: 3, suffix: " Mo", subtext: "Briscent Global LLC (Client Projects)" },
       { id: "projects", label: "Shipped Projects", value: 7, suffix: "+", subtext: "Production architectures & apps" }
@@ -192,52 +192,52 @@ export const PERSONAL_DATA = {
       title: "CollabDesk",
       subtitle: "Real-Time Collaborative Workspace & Kanban System",
       category: "Full Stack",
-      description: "A distributed, full-stack collaborative Kanban workspace inspired by Linear and Notion. Features real-time multi-user synchronization via Socket.io (<50ms latency), automated task decomposition via Google Gemini 3.8 Flash, direct AWS S3 presigned uploads, Razorpay subscription checkout, and asynchronous Slack notifications.",
+      description: "Built a real-time collaborative Kanban workspace with JWT-authenticated Socket.io rooms, optimistic concurrency control preventing lost updates, direct AWS S3 presigned asset streaming, and a bounded 15s-TTL LRU cache with Redis Pub/Sub invalidation.",
       featured: true,
       coverImage: "/images/projects/collabdesk-board.png",
       liveUrl: "https://collab-desk-nine.vercel.app",
       githubUrl: "https://github.com/Ritik-7032/collabDesk",
       githubBackendUrl: "https://github.com/Ritik-7032/collabDesk",
       techStack: [
-        "React 19", "Vite", "Tailwind CSS", "Socket.io", "Node.js",
-        "Express 5", "MongoDB Atlas", "Docker", "AWS EC2", "AWS S3", "Gemini 3.8 Flash", "Razorpay", "JWT", "Slack Webhooks"
+        "React 19", "Node.js", "Express", "Socket.io", "MongoDB Atlas",
+        "Redis", "AWS (EC2, S3)", "Docker", "Gemini AI", "Tailwind CSS"
       ],
       highlights: [
-        "Real-time synchronized Kanban boards powered by Socket.io bi-directional events (<50ms sync)",
-        "Automated task decomposition & AI subtasks powered by Google Gemini 3.8 Flash",
-        "Direct AWS S3 presigned URL asset uploads & Razorpay payment gateway integration",
-        "Containerized with Docker & deployed on AWS EC2 (Ubuntu 24.04 LTS) with reverse proxy on Vercel Edge"
+        "Built a real-time Kanban platform with JWT-authenticated sockets and fail-closed room authorization; added Redis adapter for multi-instance fan-out",
+        "Prevented lost updates in concurrent card edits with optimistic concurrency control (per-task version counter, atomic findOneAndUpdate), returning HTTP 409 Conflict on stale writes",
+        "Implemented direct-to-S3 presigned uploads (5-min expiry, 10 MB cap, MIME whitelist, SVG blocked) with HeadObject confirm step enforcing workspace key prefixes",
+        "Raised authenticated read throughput from 34 to 98.6 req/s (2.9x) and cut p50 latency from 181 ms to 69 ms via bounded 15s-TTL LRU cache with Redis Pub/Sub invalidation; 24 integration tests in CI"
       ],
       metrics: [
-        { label: "Real-Time Sync", value: "< 50ms" },
-        { label: "Deployment", value: "AWS EC2 + Docker" },
-        { label: "AI Engine", value: "Gemini 3.8 Flash" }
+        { label: "Throughput Boost", value: "34 → 98.6 req/s (2.9x)" },
+        { label: "p50 Latency", value: "181ms → 69ms" },
+        { label: "Architecture", value: "AWS EC2 + Redis Pub/Sub" }
       ]
     },
     {
       id: "hypersend",
       title: "HyperSend",
-      subtitle: "High-Throughput Distributed Email Scheduling & Rate-Limiting Engine",
+      subtitle: "Email Scheduling & Rate-Limiting Engine",
       category: "Distributed Systems",
-      description: "A production-grade, distributed background email scheduling and rate-limiting engine built with TypeScript, Express, BullMQ, Redis, PostgreSQL, and Prisma. Capable of scheduling, rate-limiting, and dispatching up to 10,000 email recipients per request with atomic Redis Lua token-bucket rate limiters.",
+      description: "Architected a rate-limited email scheduler with separate API and worker processes for up to 10,000 recipients, cutting DB write time from 8.5s to 2.2s (3.8x) with a single-roundtrip unnest insert and enforcing atomic Redis Lua token-bucket rate limiters.",
       featured: true,
       coverImage: "/images/projects/hypersend-preview.svg",
       liveUrl: "https://hypersend.vercel.app",
       githubUrl: "https://github.com/Ritik-7032/Email-Job-Scheduler",
       techStack: [
-        "TypeScript", "Express", "BullMQ", "Redis (AOF)", "PostgreSQL",
-        "Prisma ORM", "React 18", "Tailwind CSS", "Docker Compose", "Nodemailer", "Zod", "Vitest"
+        "TypeScript", "Node.js", "Express", "BullMQ", "Redis (AOF)",
+        "PostgreSQL", "Prisma", "React", "Docker", "Vitest"
       ],
       highlights: [
-        "High-concurrency queue processing with BullMQ delayed workers handling up to 10,000 recipients per payload",
-        "Per-sender rate limiting enforced using custom atomic Redis Lua scripts (min-gap & hourly sliding window)",
-        "Idempotent worker execution with automatic crash recovery and dead-letter queue inspection (60/60 tests passing)",
-        "Full-stack React dashboard with Google OAuth, containerized via Docker Compose and deployed to Vercel & Render"
+        "Architected a rate-limited email scheduler (BullMQ, Redis, PostgreSQL) for up to 10,000 recipients; cut DB write time from 8.5s to 2.2s (3.8x, remote Postgres) via single-roundtrip unnest insert",
+        "Designed an atomic Redis Lua rate limiter (2s per-sender gap, hourly quota) that prevents race conditions; throttled jobs reschedule via BullMQ moveToDelayed without burning retries",
+        "Prevented duplicate sends with stable job IDs, atomic SQL claims, and Redis dispatch ledger; reconcilers recover from API, worker, and Redis failures (3-worker kill -9 test: 40/40 delivered, 0 duplicates)",
+        "Wrote 60 unit and integration tests (Vitest, Supertest; ~79% coverage, 100% on rate limiter, queue, and ingestion modules) with GitHub Actions CI"
       ],
       metrics: [
-        { label: "Batch Capacity", value: "10,000 Recipient/Req" },
-        { label: "Rate Limiter", value: "Atomic Lua Script" },
-        { label: "Queue Engine", value: "BullMQ + Redis" }
+        { label: "DB Write Speedup", value: "8.5s → 2.2s (3.8x)" },
+        { label: "Batch Scale", value: "Up to 10,000 Recipients" },
+        { label: "Test Suite", value: "60/60 Passed (~79% Cov)" }
       ]
     },
     {
@@ -350,20 +350,19 @@ export const PERSONAL_DATA = {
   experience: [
     {
       id: "briscent-internship",
-      role: "Web Development Intern (Remote)",
+      role: "Web Development Intern (resume and career consultancy)",
       company: "Briscent Global LLC",
-      companySubtext: "BISANA Connective Solutions",
+      companySubtext: "Client-facing hiring and resume-rating platform",
       period: "Mar 2026 – Jun 2026",
       type: "Internship (Remote)",
       location: "Remote",
       points: [
-        "Launched 5+ responsive, cross-browser web interfaces using HTML, CSS, JavaScript, and React for live client projects, crafting reusable UI components.",
-        "Collaborated seamlessly across a distributed remote engineering team using Git and GitHub for branch management and code reviews.",
-        "Interfaced directly with clients to gather detailed technical specifications and delivered features on schedule.",
-        "Authored 10+ pages of comprehensive project documentation and architectural notes for streamlined handover.",
-        "Rigorously tested REST APIs and debugged complex UI/logic bugs to elevate application stability and runtime speed."
+        "Developed a resume upload module and a client-facing hiring interface for a resume-rating and hiring platform with a large user base; delivered 15+ full-stack features (React, TypeScript, Node.js REST APIs) working directly with clients.",
+        "Improved Largest Contentful Paint (LCP) by ~35% and reached 90+ Lighthouse Performance scores on tested pages using route-level code splitting, lazy-loaded imports, and React memoization.",
+        "Engineered reusable API hooks with async state management, client-side caching, and bounded exponential-backoff retries; tested and debugged Node.js REST endpoints with Postman.",
+        "Wrote unit tests for critical UI and API states and enforced ESLint standards across reusable components."
       ],
-      technologies: ["React", "JavaScript", "HTML5", "CSS3", "Git", "GitHub", "REST APIs", "Postman"]
+      technologies: ["React.js", "TypeScript", "Node.js", "REST APIs", "Postman", "Vitest", "ESLint"]
     }
   ] as ExperienceItem[],
 
@@ -414,39 +413,39 @@ export const PERSONAL_DATA = {
 
   achievements: [
     {
+      id: "dsa-achievement",
+      title: "300+ DSA Problems Solved on LeetCode",
+      category: "DSA",
+      description: "Solved 300+ data structures and algorithms problems on LeetCode with strong algorithmic optimization in C++.",
+      metric: "300+ Solved",
+      badgeText: "LeetCode C++",
+      iconName: "Code"
+    },
+    {
       id: "jee-achievement",
-      title: "95 Percentile in JEE Main 2023",
+      title: "Scored Above 95th Percentile in JEE Main 2023",
       category: "Academics",
-      description: "Achieved 95 percentile in one of the world's most competitive entrance examinations with over 1 million candidates.",
+      description: "Scored above the 95th percentile in JEE Main 2023 among 1 million+ candidates nationwide.",
       metric: "95%ile",
       badgeText: "National Top 5%",
       iconName: "Award"
     },
     {
-      id: "dsa-achievement",
-      title: "250+ DSA Problems & LeetCode 50-Day Badge",
-      category: "DSA",
-      description: "Solved 250+ algorithmic problems in C++ (197 on LeetCode + local platforms). Earned LeetCode 50 Days Badge 2025 for consistent daily problem solving.",
-      metric: "250+ Solved",
-      badgeText: "50-Day Badge 2025",
-      iconName: "Code"
-    },
-    {
       id: "fdp-coordinator",
-      title: "Faculty Coordinator — 4-Day FDP",
+      title: "Faculty Coordinator — 2-Day FDP",
       category: "Leadership",
-      description: "Coordinated a 4-day Faculty Development Program at IIIT Ranchi for 50+ faculty participants, managing communications, technical logistics, and operational arrangements.",
-      metric: "50+ Participants",
+      description: "Independently organized a 2-day Faculty Development Program at IIIT Ranchi for 50+ professors, managing technical sessions and operations.",
+      metric: "50+ Professors",
       badgeText: "IIIT Ranchi Leadership",
       iconName: "Users"
     },
     {
       id: "volleyball-organizer",
-      title: "Intra-Hostel Volleyball Tournament Organizer",
+      title: "Volleyball Tournament Organizer",
       category: "Leadership",
-      description: "Successfully organized and managed 3 intra-hostel volleyball tournaments with 5 competing teams each at IIIT Ranchi, overseeing fixtures, team scheduling, and logistics.",
-      metric: "3 Tournaments",
-      badgeText: "5 Teams Each",
+      description: "Independently organized and managed 2 intra-hostel volleyball tournament events at IIIT Ranchi.",
+      metric: "2 Events",
+      badgeText: "Sports Leadership",
       iconName: "Trophy"
     }
   ] as AchievementItem[],
