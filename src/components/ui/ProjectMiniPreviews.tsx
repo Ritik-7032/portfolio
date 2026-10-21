@@ -12,7 +12,7 @@ export const CollabDeskPreview: React.FC = () => (
         <span>CollabDesk Workspace</span>
       </div>
       <span className="px-2 py-0.5 rounded bg-violet-500/20 text-violet-300 font-mono text-[9px] border border-violet-500/30">
-        Gemini AI Integrated
+        Gemini 3.8 Flash AI
       </span>
     </div>
 
@@ -22,10 +22,10 @@ export const CollabDeskPreview: React.FC = () => (
       <div className="bg-slate-900/90 rounded-lg p-1.5 border border-white/5">
         <span className="text-[9px] font-mono text-slate-400 block mb-1">TO DO (2)</span>
         <div className="bg-slate-800/90 rounded p-1.5 border border-white/5 mb-1 text-[10px] text-slate-200">
-          Setup EC2 PM2 Cluster
+          Docker AWS EC2
         </div>
         <div className="bg-slate-800/90 rounded p-1.5 border border-white/5 text-[10px] text-slate-200">
-          Razorpay Webhook
+          Slack Webhook Alert
         </div>
       </div>
 
@@ -35,7 +35,7 @@ export const CollabDeskPreview: React.FC = () => (
         <div className="bg-cyan-950/40 rounded p-1.5 border border-cyan-500/40 text-[10px] text-cyan-200">
           <div className="flex items-center gap-1 font-bold text-[10px] mb-0.5">
             <Sparkles className="w-2.5 h-2.5 text-cyan-400" />
-            <span>AI Subtask Generation</span>
+            <span>AI Subtasks (Gemini)</span>
           </div>
           <span className="text-[8px] text-slate-300 block">Socket.io Room Active</span>
         </div>
@@ -45,26 +45,26 @@ export const CollabDeskPreview: React.FC = () => (
       <div className="bg-slate-900/90 rounded-lg p-1.5 border border-white/5">
         <span className="text-[9px] font-mono text-emerald-400 block mb-1">DONE (3)</span>
         <div className="bg-emerald-950/30 rounded p-1.5 border border-emerald-500/30 text-[10px] text-emerald-200">
-          AWS S3 Upload Pipe
+          S3 Upload + Razorpay
         </div>
       </div>
     </div>
 
     <div className="flex items-center justify-between text-[9px] text-slate-400 pt-1 border-t border-white/5 font-mono">
-      <span>Latency: &lt;50ms</span>
-      <span className="text-cyan-400 font-bold">● WebSocket Connected</span>
+      <span>Latency: &lt;50ms (WebSocket)</span>
+      <span className="text-cyan-400 font-bold">● Vercel &amp; AWS EC2 Live</span>
     </div>
   </div>
 );
 
-export const EmailSchedulerPreview: React.FC = () => (
+export const HyperSendPreview: React.FC = () => (
   <div className="w-full h-full bg-[#080d1a] p-3 text-xs flex flex-col justify-between font-sans select-none">
     <div className="flex items-center justify-between pb-2 border-b border-white/10 text-[11px]">
       <div className="flex items-center gap-1.5 font-bold text-white">
         <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-        <span>BullMQ Async Queue Stream</span>
+        <span>HyperSend Queue Stream</span>
       </div>
-      <span className="px-2 py-0.5 rounded bg-red-500/20 text-red-300 font-mono text-[9px] border border-red-500/30">
+      <span className="px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 font-mono text-[9px] border border-rose-500/30">
         Atomic Redis Lua
       </span>
     </div>
@@ -76,28 +76,35 @@ export const EmailSchedulerPreview: React.FC = () => (
       </div>
       <div className="p-1.5 rounded-lg bg-slate-900/90 border border-white/5">
         <span className="text-[8px] font-mono text-slate-400 block">WORKERS</span>
-        <span className="text-xs font-bold text-emerald-400 font-mono">4 Nodes Idle</span>
+        <span className="text-xs font-bold text-emerald-400 font-mono">5 Concurrency</span>
       </div>
       <div className="p-1.5 rounded-lg bg-slate-900/90 border border-white/5">
-        <span className="text-[8px] font-mono text-slate-400 block">RECOVERY</span>
-        <span className="text-xs font-bold text-violet-400 font-mono">Idempotent</span>
+        <span className="text-[8px] font-mono text-slate-400 block">TEST SUITE</span>
+        <span className="text-xs font-bold text-violet-400 font-mono">60/60 Passed</span>
       </div>
     </div>
 
     <div className="space-y-1 bg-slate-950/80 p-1.5 rounded-lg border border-white/5 font-mono text-[9px]">
       <div className="flex justify-between text-slate-300">
-        <span className="text-cyan-400">JOB #9421</span>
-        <span>Bulk Auth Dispatch (3,200 emails)</span>
-        <span className="text-emerald-400">SUCCESS (0.6s)</span>
+        <span className="text-cyan-400">BATCH #1024</span>
+        <span>Marketing Campaign (5,000 emails)</span>
+        <span className="text-emerald-400">DISPATCHED (0.4s)</span>
       </div>
       <div className="flex justify-between text-slate-300">
-        <span className="text-cyan-400">JOB #9422</span>
-        <span>Delayed Newsletter Campaign</span>
-        <span className="text-amber-400">PROCESSING (Lua 50/s)</span>
+        <span className="text-cyan-400">RATE GATE</span>
+        <span>Sliding Window: gap:ID &amp; rate:ID</span>
+        <span className="text-amber-400">ENFORCED (Lua)</span>
       </div>
+    </div>
+
+    <div className="flex items-center justify-between text-[9px] text-slate-400 pt-1 border-t border-white/5 font-mono">
+      <span>Worker Engine: BullMQ + Redis</span>
+      <span className="text-emerald-400 font-bold">● Vercel &amp; Render Live</span>
     </div>
   </div>
 );
+
+export const EmailSchedulerPreview = HyperSendPreview;
 
 export const EdutomPreview: React.FC = () => (
   <div className="w-full h-full bg-[#061220] p-3 text-xs flex flex-col justify-between font-sans select-none">
@@ -254,6 +261,7 @@ export const LeafEnhancerPreview: React.FC = () => (
 
 export const PROJECT_PREVIEWS: Record<string, React.ReactNode> = {
   collabdesk: <CollabDeskPreview />,
+  hypersend: <HyperSendPreview />,
   'email-job-scheduler': <EmailSchedulerPreview />,
   edutom: <EdutomPreview />,
   curiblog: <CuriBlogPreview />,

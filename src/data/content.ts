@@ -190,48 +190,48 @@ export const PERSONAL_DATA = {
     {
       id: "collabdesk",
       title: "CollabDesk",
-      subtitle: "AI-Powered Real-Time Team Workspace",
+      subtitle: "Real-Time Collaborative Workspace & Kanban System",
       category: "Full Stack",
-      description: "A full-featured collaborative project workspace featuring real-time Kanban boards with Socket.io, automated AI subtask generation via Gemini API, secure S3 asset management, and verified Razorpay subscription checkouts.",
+      description: "A distributed, full-stack collaborative Kanban workspace inspired by Linear and Notion. Features real-time multi-user synchronization via Socket.io (<50ms latency), automated task decomposition via Google Gemini 3.8 Flash, direct AWS S3 presigned uploads, Razorpay subscription checkout, and asynchronous Slack notifications.",
       featured: true,
-      coverImage: "/images/projects/collabdesk.svg",
-      liveUrl: "https://aka-layer-glad-fabric.trycloudflare.com/",
-      githubUrl: "https://github.com/Ritik-7032/collabdesk-frontend",
-      githubBackendUrl: "https://github.com/Ritik-7032/collabdesk-backend",
+      coverImage: "/images/projects/collabdesk-board.png",
+      liveUrl: "https://collab-desk-nine.vercel.app",
+      githubUrl: "https://github.com/Ritik-7032/collabDesk",
+      githubBackendUrl: "https://github.com/Ritik-7032/collabDesk",
       techStack: [
         "React 19", "Vite", "Tailwind CSS", "Socket.io", "Node.js",
-        "Express", "MongoDB", "AWS S3", "AWS EC2", "PM2", "Gemini API", "Razorpay", "JWT", "Google OAuth"
+        "Express 5", "MongoDB Atlas", "Docker", "AWS EC2", "AWS S3", "Gemini 3.8 Flash", "Razorpay", "JWT", "Slack Webhooks"
       ],
       highlights: [
-        "Real-time synchronized Kanban boards powered by Socket.io bi-directional events",
-        "AI-generated subtasks & breakdown powered by Google Gemini API integration",
-        "Direct AWS S3 file upload pipeline & Razorpay payment gateway with cryptographic signature verification",
-        "Deployed production backend on AWS EC2 instance managed by PM2 process manager"
+        "Real-time synchronized Kanban boards powered by Socket.io bi-directional events (<50ms sync)",
+        "Automated task decomposition & AI subtasks powered by Google Gemini 3.8 Flash",
+        "Direct AWS S3 presigned URL asset uploads & Razorpay payment gateway integration",
+        "Containerized with Docker & deployed on AWS EC2 (Ubuntu 24.04 LTS) with reverse proxy on Vercel Edge"
       ],
       metrics: [
         { label: "Real-Time Sync", value: "< 50ms" },
-        { label: "Cloud Storage", value: "AWS S3" },
-        { label: "Deployment", value: "AWS EC2 + PM2" }
+        { label: "Deployment", value: "AWS EC2 + Docker" },
+        { label: "AI Engine", value: "Gemini 3.8 Flash" }
       ]
     },
     {
-      id: "email-job-scheduler",
-      title: "Email Job Scheduler",
-      subtitle: "High-Throughput Asynchronous Email Engine",
+      id: "hypersend",
+      title: "HyperSend",
+      subtitle: "High-Throughput Distributed Email Scheduling & Rate-Limiting Engine",
       category: "Distributed Systems",
-      description: "A distributed, bulletproof email processing pipeline capable of scheduling, rate-limiting, and dispatching up to 10,000 email recipients per request without blocking server event loops.",
+      description: "A production-grade, distributed background email scheduling and rate-limiting engine built with TypeScript, Express, BullMQ, Redis, PostgreSQL, and Prisma. Capable of scheduling, rate-limiting, and dispatching up to 10,000 email recipients per request with atomic Redis Lua token-bucket rate limiters.",
       featured: true,
-      coverImage: "/images/projects/email-scheduler.svg",
-      liveUrl: "https://email-job-scheduler-alpha.vercel.app/",
+      coverImage: "/images/projects/hypersend-preview.svg",
+      liveUrl: "https://hypersend.vercel.app",
       githubUrl: "https://github.com/Ritik-7032/Email-Job-Scheduler",
       techStack: [
-        "TypeScript", "Express", "BullMQ", "Redis", "PostgreSQL",
-        "Prisma ORM", "React", "Tailwind CSS", "Docker", "Docker Compose", "Vercel", "Render"
+        "TypeScript", "Express", "BullMQ", "Redis (AOF)", "PostgreSQL",
+        "Prisma ORM", "React 18", "Tailwind CSS", "Docker Compose", "Nodemailer", "Zod", "Vitest"
       ],
       highlights: [
         "High-concurrency queue processing with BullMQ delayed workers handling up to 10,000 recipients per payload",
-        "Per-sender rate limiting implemented using custom atomic Redis Lua scripts",
-        "Idempotent worker execution with automatic crash recovery and dead-letter queue inspection",
+        "Per-sender rate limiting enforced using custom atomic Redis Lua scripts (min-gap & hourly sliding window)",
+        "Idempotent worker execution with automatic crash recovery and dead-letter queue inspection (60/60 tests passing)",
         "Full-stack React dashboard with Google OAuth, containerized via Docker Compose and deployed to Vercel & Render"
       ],
       metrics: [
