@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   X, Download, ExternalLink, FileText, CheckCircle2, 
-  Sparkles, Briefcase, GraduationCap, Code2, Award, Mail, Phone, MapPin, Globe
+  Sparkles, Briefcase, GraduationCap, Code2, Award, Mail, Phone, MapPin, Globe, Github
 } from 'lucide-react';
 import { PERSONAL_DATA } from '../../data/content';
 
@@ -140,12 +140,18 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
             <div className="flex-1 w-full overflow-y-auto bg-slate-950 p-2 sm:p-4">
               {viewMode === 'pdf' ? (
                 /* PDF Embed View */
-                <div className="w-full h-full rounded-2xl overflow-hidden border border-white/10 bg-slate-900 shadow-inner flex flex-col">
-                  <iframe
-                    src="/resume.pdf#toolbar=1&navpanes=0&view=FitH"
-                    title="Ritik Kumar Resume"
-                    className="w-full h-full min-h-[600px] border-none block bg-slate-900"
-                  />
+                <div className="w-full h-full rounded-2xl overflow-hidden border border-white/10 bg-slate-900 shadow-inner flex flex-col min-h-[750px]">
+                  <object
+                    data="/resume.pdf#toolbar=1&navpanes=0&view=FitH"
+                    type="application/pdf"
+                    className="w-full h-full min-h-[750px] border-none block bg-slate-900"
+                  >
+                    <iframe
+                      src="/resume.pdf#toolbar=1&navpanes=0&view=FitH"
+                      title="Ritik Kumar Resume"
+                      className="w-full h-full min-h-[750px] border-none block bg-slate-900"
+                    />
+                  </object>
                 </div>
               ) : (
                 /* Clean Interactive Document Resume View */
@@ -155,14 +161,51 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
                     <h1 className="text-3xl sm:text-4xl font-heading font-black text-white mb-2">
                       {PERSONAL_DATA.name.toUpperCase()}
                     </h1>
-                    <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-mono text-cyan-300">
-                      <span>singhritik7032@gmail.com</span>
+                    <div className="flex flex-wrap items-center justify-center gap-3 text-xs font-mono text-cyan-300">
+                      <a 
+                        href={`mailto:${PERSONAL_DATA.email}`} 
+                        className="hover:text-white underline underline-offset-4 transition-colors"
+                      >
+                        {PERSONAL_DATA.email}
+                      </a>
                       <span>•</span>
-                      <span>github.com/Ritik-7032</span>
+                      <a 
+                        href={PERSONAL_DATA.github} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="hover:text-white underline underline-offset-4 flex items-center gap-1 transition-colors"
+                      >
+                        <Github className="w-3.5 h-3.5" />
+                        <span>github.com/Ritik-7032</span>
+                      </a>
                       <span>•</span>
-                      <span>linkedin.com/in/ritik-rajput7032</span>
+                      <a 
+                        href={PERSONAL_DATA.linkedin} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="hover:text-white underline underline-offset-4 flex items-center gap-1 transition-colors"
+                      >
+                        <span>linkedin.com/in/ritik-rajput7032</span>
+                      </a>
                       <span>•</span>
-                      <span>leetcode.com/u/ritik-7032</span>
+                      <a 
+                        href={PERSONAL_DATA.leetcode} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="hover:text-white underline underline-offset-4 flex items-center gap-1 transition-colors"
+                      >
+                        <span>leetcode.com/u/ritik-7032</span>
+                      </a>
+                      <span>•</span>
+                      <a 
+                        href="https://hey-reetik-portfolio.vercel.app" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="hover:text-cyan-200 underline underline-offset-4 text-cyan-400 font-bold flex items-center gap-1 transition-colors"
+                      >
+                        <span>hey-reetik-portfolio.vercel.app</span>
+                        <ExternalLink className="w-3 h-3" />
+                      </a>
                     </div>
                   </div>
 
@@ -172,7 +215,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
                       PROFESSIONAL SUMMARY
                     </h2>
                     <p className="text-sm text-slate-300 leading-relaxed font-light">
-                      Full-stack developer (React, Node.js, TypeScript, C++) and B.Tech ECE student at IIIT Ranchi with a 3-month remote web development internship and two full-stack projects deployed to production. Shipped real-time collaboration, payment, and queue-based scheduling systems using MongoDB, PostgreSQL, Redis, and AWS. Solved 250+ DSA problems in C++.
+                      Full-stack developer (React, Node.js, TypeScript, C++) and B.Tech ECE student at IIIT Ranchi with a 3-month remote web development internship and two production-grade full-stack systems deployed online. Built and shipped real-time collaboration with Socket.io, Gemini AI subtasks, atomic Redis Lua rate-limiting queues handling up to 10,000 recipients, and AWS cloud storage. Solved 250+ DSA problems in C++.
                     </p>
                   </div>
 
@@ -224,11 +267,40 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
                     </h2>
                     <div className="space-y-5">
                       {PERSONAL_DATA.projects.slice(0, 3).map((proj) => (
-                        <div key={proj.id} className="space-y-1.5">
-                          <div className="flex flex-col sm:flex-row sm:items-center justify-between text-sm">
-                            <span className="font-bold text-white">{proj.title} — {proj.subtitle}</span>
-                            <span className="font-mono text-xs text-cyan-400">{proj.techStack.slice(0, 5).join(', ')}</span>
+                        <div key={proj.id} className="space-y-2 p-3.5 rounded-2xl bg-slate-950/60 border border-white/5">
+                          <div className="flex flex-col sm:flex-row sm:items-center justify-between text-sm gap-2">
+                            <div>
+                              <span className="font-bold text-white text-base">{proj.title}</span>
+                              <span className="text-slate-400 text-xs sm:ml-2 block sm:inline">— {proj.subtitle}</span>
+                            </div>
+                            <div className="flex items-center gap-2 text-xs font-mono shrink-0">
+                              {proj.liveUrl && (
+                                <a
+                                  href={proj.liveUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="px-2.5 py-1 rounded-lg bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 border border-cyan-500/40 flex items-center gap-1.5 transition-all hover:scale-105"
+                                  title={`Open ${proj.title} Live App`}
+                                >
+                                  <span>Live App</span>
+                                  <ExternalLink className="w-3 h-3" />
+                                </a>
+                              )}
+                              {proj.githubUrl && (
+                                <a
+                                  href={proj.githubUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 border border-white/10 flex items-center gap-1.5 transition-all hover:scale-105"
+                                  title={`Open ${proj.title} GitHub Repository`}
+                                >
+                                  <Github className="w-3 h-3" />
+                                  <span>GitHub</span>
+                                </a>
+                              )}
+                            </div>
                           </div>
+                          <div className="text-xs font-mono text-cyan-400">{proj.techStack.slice(0, 6).join(' • ')}</div>
                           <ul className="list-disc list-inside space-y-1 text-xs text-slate-300">
                             {proj.highlights.map((h, hIdx) => (
                               <li key={hIdx}>{h}</li>
